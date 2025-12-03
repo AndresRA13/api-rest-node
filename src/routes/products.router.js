@@ -10,6 +10,8 @@ import { getAllProducts,
     updateProduct, 
     updatePatchProduct, } from "../controllers/products.controller.js";
 
+
+
 router.get("/products", getAllProducts, deleteProduct);
  
 router.get("/products/search", searchProducts);

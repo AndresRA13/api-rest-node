@@ -4,12 +4,14 @@ import * as Model from "../models/product.js";
 export const getAllProducts = async (req, res) => {
     const { category} = req.query;
 
+    if (category){
+        const productsByCategory = await Model.getProductsByCategory(category);
+        return res.json(productsByCategory);
+        
+    } 
+
     const products = await Model.getAllProducts();
 
-    if (category){
-        const productsFiltered = products.filter(item => item.categories.includes(category));
-        return res.json(productsFiltered);
-    } 
     res.json(products);
 }
 
