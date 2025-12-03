@@ -2,7 +2,13 @@ import { Router } from "express";
 
 const router = Router();
 
-import { getAllProducts, searchProducts, getProductById, createProduct, deleteProduct } from "../controllers/products.controller.js";
+import { getAllProducts, 
+    searchProducts, 
+    getProductById, 
+    createProduct, 
+    deleteProduct, 
+    updateProduct, 
+    updatePatchProduct, } from "../controllers/products.controller.js";
 
 router.get("/products", getAllProducts, deleteProduct);
  
@@ -11,6 +17,10 @@ router.get("/products/search", searchProducts);
 router.get("/products/:id", getProductById);
 
 router.post("/products", createProduct);
+
+router.put("/products/:id", updateProduct);
+
+router.patch("/products/:id", updatePatchProduct);
 
 router.delete("/products/:id", deleteProduct );
 
