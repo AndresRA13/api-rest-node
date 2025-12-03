@@ -73,3 +73,42 @@ npm run dev
 ```json
 [{ "id": 1, "name": "Camiseta Deportiva", "price": 150}]
 ```
+
+### Crear Producto
+
+- **POST** `/products`
+- **Descripción:** Crea un nuevo producto
+- **Body (JSON):** 
+
+```json
+{
+        "price": 26,
+        "name": "Producto Nuevo",
+        "category": [
+            "category1",
+            "category2"
+        ]
+    }
+```
+
+- **Respuesta ejemplo:**
+
+```json
+{
+    "id": "HW7qWkrUd4A2loxV4qlY",
+    "name": "Producto Nuevo",
+    "price": 26,
+    "category": [
+        "category1",
+        "category2"
+    ]
+}
+```
+
+### Eliminar un producto
+
+- **DELETE** `/products/:id`
+- **Descripción:** Elimina un producto por su ID
+- **Parámetros:**
+   - `id` (path, requerido):  ID del producto a eliminar
+- **Respuesta:** 204 No Content

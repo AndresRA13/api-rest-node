@@ -40,3 +40,24 @@ export const getProductById = async (req,res) => {
     } 
     res.json(product);
 }
+
+export const createProduct = async (req, res) => {
+    const {name, price, category} =  req.body;
+
+    const product = await Model.createProduct({name, price, category});
+    res.status(201).json(product);
+}
+
+export const deleteProduct = async (req, res) => {
+    const { id } = req.params;
+
+
+    const deleted = await Model.deleteProduct(id);
+
+
+    if(!deleted){
+        return res.status(404).json({ "error": "Producto no encontrado"});
+    }
+
+    res.status(204).send();
+}
